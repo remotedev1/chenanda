@@ -20,9 +20,9 @@ const WelcomeScreen = () => {
   // }
 
   return (
-    <div className="relative w-full h-screen bg-black">
+    <div className="relative w-full h-dvh bg-black">
       {/* Background Image */}
-      <div className="relative w-full h-[80vh] lg:h-[80vh]">
+      <div className="relative w-full h-[70vh] lg:h-[80vh]">
         <Image
           src="/images/welcome_screen/index.jpg"
           alt="chenanda"
@@ -50,7 +50,7 @@ const WelcomeScreen = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           
-          <h1 className="text-white font-bold text-2xl sm:text-4xl lg:text-4xl xl:text-6xl leading-tight">
+          <h1 className="text-white font-bold text-1xl sm:text-4xl lg:text-4xl xl:text-6xl leading-tight">
             Chenanda Family Welcomes You!
           </h1>
         </motion.div>

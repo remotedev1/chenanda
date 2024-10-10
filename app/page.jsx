@@ -19,7 +19,7 @@ export default async function Home() {
   // const brands = await getBrands();
 
   return (
-    <main className="flex   overflow-hidden min-h-dvh flex-col items-center justify-between  text-black">
+    <main className="flex   overflow-hidden  flex-col items-center justify-between  text-black">
       <div className="flex w-full flex-col">
         <WelcomeScreen />
       </div>
