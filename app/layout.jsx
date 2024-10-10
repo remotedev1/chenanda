@@ -11,21 +11,21 @@ const font = Urbanist({ subsets: ["latin"] });
 
 export const metadata = {
   manifest: "/manifest.json",
-  title: "Plumbazar",
-  description: "Plumbazar ecom",
+  title: "Chenanda",
+  description: "official website for Chenanda",
   openGraph: {
-    title: "Plumbazar",
-    description: "An e-commerce site",
-    url: "https://plumbazar.com",
+    title: "Chenanda",
+    description: "official website for Chenanda",
+    url: "https://chenanda.in",
     images: [
       {
         url: "/website-thumbnail.jpg",
         width: 1200,
         height: 630,
-        alt: "plumbazar",
+        alt: "chenanda",
       },
     ],
-    siteName: "plumbazar",
+    siteName: "chenanda",
   },
   icons: {
     icon: "/favicon.ico", // Path to the favicon
