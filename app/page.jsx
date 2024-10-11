@@ -10,7 +10,9 @@
 // import { WhyChooseUs } from "@/components/frontend/homepage/why-choose-us";
 // import ProductCarousel from "@/components/frontend/product-carousel";
 
-import WelcomeScreen from "@/components/frontend/initail release/WelcomeScreen";
+import About from "@/components/frontend/homepage/About";
+import Gallery from "@/components/frontend/homepage/Gallery";
+import Hero from "@/components/frontend/homepage/Hero";
 
 export const revalidate = 0;
 
@@ -21,7 +23,10 @@ export default async function Home() {
   return (
     <main className="flex   overflow-hidden  flex-col items-center justify-between  text-black">
       <div className="flex w-full flex-col">
-        <WelcomeScreen />
+        {/* <WelcomeScreen /> */}
+        <Hero />
+        <About />
+        <Gallery />
       </div>
     </main>
   );

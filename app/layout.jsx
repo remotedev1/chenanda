@@ -1,7 +1,8 @@
 import { Urbanist } from "next/font/google";
 import "./globals.css";
-// import Sessions from "@/providers/session-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
+import Footer from "@/components/frontend/homepage/Footer";
+import Navbar from "@/components/frontend/homepage/navbar";
 // import { ModalProvider } from "@/providers/modal-provider";
 // import { ToastProvider } from "@/providers/toast-provider";
 // import { DataProvider } from "@/providers/data-provider";
@@ -67,7 +68,9 @@ export default async function RootLayout({ children, params: { locale } }) {
             enableSystem
             disableTransitionOnChange
           >
+            <Navbar/>
             {children}
+            <Footer/>
           </ThemeProvider>
         </body>
       </html>
