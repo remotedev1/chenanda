@@ -82,7 +82,7 @@ const Footer = () => {
             </div>
 
             {/* Contact Form */}
-            <div id="contact-form">
+            {/* <div id="contact-form">
               <p className="font-medium tracking-wide text-gray-300">
                 Contact Us
               </p>
@@ -136,17 +136,17 @@ const Footer = () => {
                   {loading ? "Submitting..." : "Submit"}{" "}
                 </button>
               </form>
-            </div>
+            </div> */}
           </div>
         </div>
-        <div className="flex flex-col justify-between pt-5 pb-10 border-t border-gray-800 sm:flex-row">
+        <div className="flex flex-col justify-center pt-5 pb-10 border-t border-gray-800 sm:flex-row">
           <p className="text-sm text-white/50">
             © Copyright 2024 chenanda. All rights reserved.
           </p>
-          <div className="flex items-center mt-4 space-x-4 sm:mt-0">
+          {/* <div className="flex items-center mt-4 space-x-4 sm:mt-0">
             <Link
               target="_blank"
-              href="https://in.linkedin.com/company"
+              // href="https://in.linkedin.com/company"
               className="text-white/50 transition-colors duration-300 hover:text-teal-accent-400"
             >
               <FaLinkedin />
@@ -165,7 +165,7 @@ const Footer = () => {
             >
               <FaYoutube />
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
