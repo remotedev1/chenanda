@@ -14,6 +14,11 @@ const Gallery = () => {
     },
   };
 
+  const data = [
+    "/images/gallery/chenandaokka1.jpg",
+    "/images/gallery/chenandaokka2.jpg",
+  ];
+
   const variants = {
     hidden: { opacity: 0, y: 50 }, // Start off-screen with 50px down
     show: {
@@ -58,13 +63,12 @@ const Gallery = () => {
           centerMode={false}
         >
           <div
-            key={index}
             className="relative h-[35vh] sm:h-[60vh] md:h-[65vh] lg:h-[70vh] w-full pb-3"
           >
             <div className="relative w-full h-full">
               <Image
-                src="https://www.chenanda.in/images/gallery/chenandaokka1.jpg" // Use the first image from the array
-                alt={`Banner ${index + 1}`}
+                src="/images/gallery/chenandaokka1.jpg" // Use the first image from the array
+                alt={`Chenanda`}
                 fill
                 priority={true} // Priority loading for the first images
                 className="object-contain object-center"
@@ -72,13 +76,12 @@ const Gallery = () => {
             </div>
           </div>
           <div
-            key={index}
             className="relative h-[35vh] sm:h-[60vh] md:h-[65vh] lg:h-[70vh] w-full pb-3"
           >
             <div className="relative w-full h-full">
               <Image
-                src="https://www.chenanda.in/images/gallery/chenandaokka2.jpg" // Use the first image from the array
-                alt={`Banner ${index + 1}`}
+                src="/images/gallery/chenandaokka2.jpg" // Use the first image from the array
+                alt={`Chenanda`}
                 fill
                 priority={true} // Priority loading for the first images
                 className="object-contain object-center"
