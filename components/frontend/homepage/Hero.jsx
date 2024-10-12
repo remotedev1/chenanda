@@ -1,9 +1,28 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
 const Hero = () => {
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  useEffect(() => {
+    // Set the initial screen width
+    setScreenWidth(window.innerWidth);
+
+    // Update the width whenever the window is resized
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const textVariants = {
     initial: {
       x: -500,
@@ -36,6 +55,12 @@ const Hero = () => {
     },
   };
 
+  // Determine the image source based on screen size
+  const imageSrc =
+    screenWidth >= 768
+      ? "/images/gallery/ainManey.jpg"
+      : "/images/gallery/ainManeyMobile.jpg";
+
   return (
     <div className="relative w-full h-[90vh] md:h-dvh ">
       {/* Background Image Gradient Overlay */}
@@ -50,12 +75,12 @@ const Hero = () => {
         className="absolute inset-0 "
       >
         <Image
-          src="/images/gallery/ainManeyMobile.jpg"
+          src={imageSrc}
           alt="chenanda"
           layout="fill"
           objectPosition="bottom center"
           priority
-          className="object-contain"
+          className="object-contain md:object-cover"
         />
       </motion.div>
 
