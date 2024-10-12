@@ -15,8 +15,8 @@ const Gallery = () => {
   };
 
   const data = [
-    "/images/gallery/chenandaokka1.jpg",
-    "/images/gallery/chenandaokka2.jpg",
+    "https://chenanda.onrender.com/images/gallery/chenandaokka1.jpg",
+    "https://chenanda.onrender.com/images/gallery/chenandaokka2.jpg",
   ];
 
   const variants = {
