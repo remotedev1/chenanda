@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const Hero = () => {
   const [screenWidth, setScreenWidth] = useState(0);
@@ -74,13 +73,11 @@ const Hero = () => {
         variants={imageVariants}
         className="absolute inset-0"
       >
-        <Image
+        <img
           src={imageSrc}
           alt="chenanda"
           layout="fill"
-          objectPosition="bottom center"
-          priority
-          className="object-contain md:object-cover"
+          className="object-contain md:object-cover object-bottom"
         />
       </motion.div>
 
