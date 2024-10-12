@@ -57,9 +57,10 @@ const Hero = () => {
 
   // Determine the image source based on screen size
   const imageSrc =
-    screenWidth >= 768
-      ? "/images/gallery/ainManey.jpg"
-      : "/images/gallery/ainManeyMobile.jpg";
+    screenWidth >= 470
+      ? "https://www.chenanda.in/images/images/gallery/ainManey.jpg"
+      : "https://www.chenanda.in/images/images/gallery/ainManeyMobile.jpg";
+
 
   return (
     <div className="relative w-full h-[90vh] md:h-dvh ">
