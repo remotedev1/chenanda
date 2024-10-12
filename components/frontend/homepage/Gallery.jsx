@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useRef } from "react";
@@ -65,10 +66,11 @@ const Gallery = () => {
             className="relative h-[35vh] sm:h-[60vh] md:h-[65vh] lg:h-[70vh] w-full pb-3"
           >
             <div className="relative w-full h-full">
-              <img
+              <Image
                 src="/images/gallery/chenandaokka1.jpg" // Use the first image from the array
                 alt={`Chenanda`}
                 fill
+                priority={true} // Priority loading for the first images
                 className="object-contain object-center"
               />
             </div>
@@ -77,7 +79,7 @@ const Gallery = () => {
             className="relative h-[35vh] sm:h-[60vh] md:h-[65vh] lg:h-[70vh] w-full pb-3"
           >
             <div className="relative w-full h-full">
-              <img
+              <Image
                 src="/images/gallery/chenandaokka2.jpg" // Use the first image from the array
                 alt={`Chenanda`}
                 fill

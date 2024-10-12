@@ -45,7 +45,7 @@ const Navbar = () => {
             " text-4xl md:text-5xl font-bold text-white text-center pt-3"
           }
         >
-          Chennada Okka
+          Chenanda Okka
         </h1>
         <ul
           className={`list-none flex justify-center items-center gap-4 w-full h-10 z-50 text-white text-sm md:text-lg translate-y-0 transition-all duration-300 ${
