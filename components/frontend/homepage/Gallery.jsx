@@ -1,27 +1,84 @@
+"use client";
 import Image from "next/image";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const Gallery = () => {
+  // Define responsive behavior for the carousel
+  const responsive = {
+    mobile: {
+      breakpoint: { max: 4000, min: 0 },
+      items: 1,
+    },
+  };
+
+  const data = [
+    "/images/gallery/chenandaokka1.jpg",
+    "/images/gallery/chenandaokka2.jpg",
+  ];
+
+  const variants = {
+    hidden: { opacity: 0, y: 50 }, // Start off-screen with 50px down
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        delay: 0.3, // Delay before the animation starts (in seconds)
+      },
+    },
+  };
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
+
   return (
-    <section className="max-w-[95vw] mx-auto  py-4 my-10">
-      <h2 className="text-left  text-3xl md:text-7xl my-5 pb-10 capitalize font-semibold text-yellow-500">
-        Gallery
-      </h2>
-      <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:">
-        {/* Mapping over an array of images to avoid repetition */}
-        {Array.from({ length: 8 }).map((_, index) => (
-          <div
-            className="relative w-[40vw] sm:w-[200px]  md:w-[190px] lg:w-[300px]  h-36 overflow-hidden group"
-            key={index}
-          >
-            <Image
-              src={`https://picsum.photos/800/600?random=${index}`} // Adding a random query to get different images
-              alt={`chenanda ${index + 1}`}
-              fill
-              className="object-cover opacity-50 transition-opacity duration-300 group-hover:opacity-100"
-              priority
-            />
-          </div>
-        ))}
+    <section className="relative flex flex-col  justify-center p-6 my-3">
+      <div ref={ref} className="text-center md:text-left ">
+        <motion.h2
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+          variants={variants}
+          className="text-5xl md:text-8xl font-semibold  text-yellow-500 text-center"
+        >
+          Nanga
+        </motion.h2>
+      </div>
+      <div className="relative w-full mt-5">
+        <Carousel
+          responsive={responsive}
+          showDots={false}
+          swipeable
+          minimumTouchDrag={80}
+          arrows={false}
+          autoPlay
+          autoPlaySpeed={5000}
+          shouldResetAutoplay
+          // pauseOnHover
+          infinite
+          additionalTransfrom={0}
+          itemClass=""
+          centerMode={false}
+        >
+          {data.map((item, index) => (  
+            <div
+              key={index}
+              className="relative h-[35vh] sm:h-[60vh] md:h-[65vh] lg:h-[70vh] w-full pb-3"
+            >
+              <div className="relative w-full h-full">
+                <Image
+                  src={item} // Use the first image from the array
+                  alt={`Banner ${index + 1}`}
+                  fill
+                  priority={true} // Priority loading for the first images
+                  className="object-contain object-center"
+                />
+              </div>
+            </div>
+          ))}
+        </Carousel>
       </div>
     </section>
   );

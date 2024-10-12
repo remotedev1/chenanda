@@ -61,24 +61,16 @@ const Footer = () => {
 
   return (
     <div className="bg-primary ">
-      <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+      <div className="px-4 pt-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="grid row-gap-10 mb-8 lg:grid-cols-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:col-span-4 ">
+          <div className="grid grid-cols-1 gap-8 lg:col-span-4 ">
             {/* Resources Links */}
-            <div>
-              <p className="font-medium tracking-wide text-gray-300">
-                Resources
-              </p>
-              <ul className="mt-2 space-y-2">
-                <li>
-                  <Link
-                    href="#about"
-                    className="text-white/50 transition-colors duration-300 hover:text-white"
-                  >
-                    About
-                  </Link>
-                </li>
-              </ul>
+            <div className="container  text-center text-white" id="address">
+              <h3 className="text-xl font-semibold mb-4">
+                Chennada Okka Ainmane
+              </h3>
+              <p className="text-sm">Kokeri Village, Cheyandane Post, 571212</p>
+              <p className="text-sm">Kodagu, Karnataka, India</p>
             </div>
 
             {/* Contact Form */}
@@ -140,7 +132,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col justify-center pt-5 pb-10 border-t border-gray-800 sm:flex-row">
-          <p className="text-sm text-white/50">
+          <p className="text-sm text-white/50 text-center">
             © Copyright 2024 chenanda. All rights reserved.
           </p>
           {/* <div className="flex items-center mt-4 space-x-4 sm:mt-0">

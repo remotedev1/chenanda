@@ -17,6 +17,9 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        moonspace: ['PT Serif', 'serif'], // Add your custom font here
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

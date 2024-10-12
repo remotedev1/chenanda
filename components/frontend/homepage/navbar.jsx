@@ -49,7 +49,7 @@ const Navbar = () => {
         </h1>
         <ul
           className={`list-none flex justify-center items-center gap-4 w-full h-10 z-50 text-white text-sm md:text-lg translate-y-0 transition-all duration-300 ${
-            visible ? "translate-y-0" : "-translate-y-full w-0 opacity-0 h-0"
+            visible ? "translate-y-0" : "translate-y-10 w-0 opacity-0 h-2 "
           }`}
         >
           <li>
@@ -58,12 +58,12 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="/about" className="hover:text-yellow-500">
+            <Link href="#about" className="hover:text-yellow-500">
               About
             </Link>
           </li>
           <li>
-            <Link href="#contact-form" className="hover:text-yellow-500">
+            <Link href="#address" className="hover:text-yellow-500">
               Contact
             </Link>
           </li>
