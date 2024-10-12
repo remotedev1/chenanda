@@ -5,10 +5,12 @@ import Image from "next/image";
 
 const Hero = () => {
   const [screenWidth, setScreenWidth] = useState(0);
+  const [mounted, setMounted] = useState(false); // Track if the component is mounted
 
   useEffect(() => {
     // Set the initial screen width
     setScreenWidth(window.innerWidth);
+    setMounted(true); // Set mounted to true when the component mounts
 
     // Update the width whenever the window is resized
     const handleResize = () => {
@@ -49,30 +51,28 @@ const Hero = () => {
   const imageVariants = {
     initial: { opacity: 0, scale: 0.9 },
     animate: { opacity: 1, scale: 1 },
-    transition: {
-      duration: 1, // Duration of the animation
-      ease: "easeInOut", // Easing function
-    },
   };
 
   // Determine the image source based on screen size
   const imageSrc =
-    screenWidth >= 768
+    screenWidth >= 470
       ? "/images/gallery/ainManey.jpg"
       : "/images/gallery/ainManeyMobile.jpg";
+
+  if (!mounted) return null; // Prevent rendering before the component is mounted
 
   return (
     <div className="relative w-full h-[90vh] md:h-dvh ">
       {/* Background Image Gradient Overlay */}
-      <div className="absolute inset-0  bg-primary/30 z-10" />
+      <div className="absolute inset-0 bg-primary/30 z-10" />
 
       {/* Animated Image */}
       <motion.div
         initial="initial"
         animate="animate"
-        transition="transition"
+        transition={{ duration: 1, ease: "easeInOut" }}
         variants={imageVariants}
-        className="absolute inset-0 "
+        className="absolute inset-0"
       >
         <Image
           src={imageSrc}
