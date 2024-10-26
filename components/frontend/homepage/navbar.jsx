@@ -1,7 +1,10 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { Updock } from "next/font/google";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation"; // Import usePathname for route tracking
 
 const updock = Updock({
   weight: "400",
@@ -9,65 +12,75 @@ const updock = Updock({
 });
 
 const Navbar = () => {
+  const pathname = usePathname(); // Get the current path
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-
   const handleScroll = () => {
-    if (typeof window !== "undefined") {
-      const scrollY = window.scrollY;
+    const scrollY = window.scrollY;
 
-      if (scrollY > lastScrollY && scrollY > 100) {
-        // Scrolling down
-        setVisible(false);
-      } else {
-        // Scrolling up
-        setVisible(true);
-      }
-      setLastScrollY(scrollY);
+    // Hide navbar if scrolled beyond 200px, show if below 200px
+    if (scrollY > 200) {
+      setVisible(false);
+    } else {
+      setVisible(true);
     }
+
+    setLastScrollY(scrollY);
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll); // Attach scroll listener
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll); // Clean up on unmount
     };
-  }, [lastScrollY]);
+  }, []);
+
+  const isActive = (href) => pathname === href; // Active link logic
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 bg-black/50 transition-transform duration-300 `}
+      className={`fixed inset-x-0 top-0 transition-transform duration-300 z-50 shadow-lg ${
+        !visible ? "bg-white text-black" : "bg-transparent text-white"
+      }`}
     >
-      <nav>
-        <h1
+      <nav className="flex justify-between items-center h-16 w-full container">
+        {/* Animated h1 using Framer Motion */}
+        <motion.h1
+          initial={{ y: "150%", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className={
             updock.className +
-            " text-4xl md:text-5xl font-bold text-white text-center pt-3"
+            " text-4xl md:text-3xl font-bold text-nowrap pt-3"
           }
         >
           Chenanda Okka
-        </h1>
-        <ul
-          className={`list-none flex justify-center items-center gap-4 w-full h-10 z-50 text-white text-sm md:text-lg translate-y-0 transition-all duration-300 ${
-            visible ? "translate-y-0" : "translate-y-10 w-0 opacity-0 h-2 "
-          }`}
+        </motion.h1>
+
+        {/* Animated ul items */}
+        <motion.ul
+          initial={{ x: "150%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{  duration: 0.7, ease: "easeOut" }}
+          className={`list-none flex items-end gap-6 text-sm md:text-lg transition-all duration-300`}
         >
-          <li>
-            <Link href="/" className="hover:text-yellow-500">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="#about" className="hover:text-yellow-500">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link href="#address" className="hover:text-yellow-500">
-              Contact
-            </Link>
-          </li>
-        </ul>
+          {["/", "#about", "#address"].map((href, index) => (
+            <li key={index}>
+              <Link
+                href={href}
+                className={`px-3 py-1 rounded-md transition-colors duration-300 ${
+                  isActive(href)
+                    ? "bg-primary text-white"
+                    : "hover:bg-primary hover:text-white"
+                }`}
+              >
+                {href === "/"
+                  ? "Home"
+                  : href.slice(1).charAt(0).toUpperCase() + href.slice(2)}
+              </Link>
+            </li>
+          ))}
+        </motion.ul>
       </nav>
     </header>
   );
